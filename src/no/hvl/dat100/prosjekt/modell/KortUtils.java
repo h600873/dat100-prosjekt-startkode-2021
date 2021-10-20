@@ -17,10 +17,19 @@ public class KortUtils {
 	
 	public static void sorter(KortSamling samling) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		Kort [] tabell = samling.getSamling();
+		int antall = samling.getAntalKort();
+		for (int i = 0; i<antall; i++) {
+			int min = i;
+			for(int j = 0;j<antall;j++) {
+				if(tabell[j].compareTo(tabell[min]) > 0) {
+					min = j;
+				}
+			}
+			Kort temp = tabell[i];
+			tabell[i] = tabell[min];
+			tabell[min] = temp;
+		}
 	}
 	
 	/**
@@ -31,10 +40,18 @@ public class KortUtils {
 	 */
 	public static void stokk(KortSamling samling) {
 		
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		Kort [] tabell = samling.getSamling();
+		int antall = samling.getAntalKort();
+		for(int i = 0; i<antall;i++) {
+			int rand = (int) (Math.random()*antall);
+			
+			Kort temp = tabell[i];
+			tabell[i] = tabell[rand];
+			tabell[rand] = temp;
+			
+		}
+		
 	}
 	
 }
